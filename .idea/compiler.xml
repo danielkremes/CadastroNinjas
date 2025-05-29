@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="cadastroNinjas (1)" />
-        <module name="cadastroNinjas" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cadastroNinjas" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

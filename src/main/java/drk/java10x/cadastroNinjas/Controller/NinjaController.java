@@ -13,8 +13,4 @@ public class NinjaController {
         return "Cadastro de ninjas";
     }
 
-    @GetMapping("/home2")
-    public String message2() {
-        return "Cadastro de ninjas";
-    }
 }
