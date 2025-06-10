@@ -20,6 +20,8 @@ public class NinjaModel {
     private Long id;
     private String name;
     private int age;
+
+    @Column(unique = true)
     private String email;
 
     // a mission can have several various ninjas
