@@ -24,6 +24,9 @@ public class NinjaModel {
     @Column(unique = true)
     private String email;
 
+    @Column(name = "img_url")
+    private String imageUrl;
+
     // a mission can have several various ninjas
     @OneToMany(mappedBy = "ninja")
     private List<MissionsModel> missionsModelList;
