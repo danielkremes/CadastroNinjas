@@ -31,4 +31,8 @@ public class NinjaModel {
     @OneToMany(mappedBy = "ninja")
     private List<MissionsModel> missionsModelList;
 
+    public NinjaModel(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 }
