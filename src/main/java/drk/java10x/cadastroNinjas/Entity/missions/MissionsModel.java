@@ -24,5 +24,4 @@ public class MissionsModel {
     @JoinColumn(name = "mission_id") // foreign key
     private NinjaModel ninja;
 
-
 }
