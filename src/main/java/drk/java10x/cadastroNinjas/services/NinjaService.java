@@ -11,8 +11,11 @@ import java.util.Optional;
 @Service
 public class NinjaService {
 
-    @Autowired
     private NinjaRepository ninjaRepository;
+
+    public NinjaService(NinjaRepository ninjaRepository) {
+        this.ninjaRepository = ninjaRepository;
+    }
 
     // add ninja (CREATE)
     public NinjaModel createNinja (NinjaModel ninjaModel) {

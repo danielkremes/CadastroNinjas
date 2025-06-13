@@ -12,8 +12,11 @@ import java.util.Optional;
 @RequestMapping("/ninjas")
 public class NinjaController {
 
-    @Autowired
     private NinjaService ninjaService;
+
+    public NinjaController(NinjaService ninjaService) {
+        this.ninjaService = ninjaService;
+    }
 
     @GetMapping("/home")
     public String message() {

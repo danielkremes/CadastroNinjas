@@ -1,5 +1,6 @@
 package drk.java10x.cadastroNinjas.Entity.ninja;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import drk.java10x.cadastroNinjas.Entity.missions.MissionsModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -28,6 +29,7 @@ public class NinjaModel {
     private String imageUrl;
 
     // a mission can have several various ninjas
+    @JsonIgnore
     @OneToMany(mappedBy = "ninja")
     private List<MissionsModel> missionsModelList;
 
