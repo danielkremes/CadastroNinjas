@@ -25,12 +25,12 @@ public class NinjaService {
     }
 
     // show ninja by id (READ)
-    public Optional<NinjaModel> getAllNinjas(Long id) {
+    public Optional<NinjaModel> getNinjaById(Long id) {
         return ninjaRepository.findById(id);
     }
 
     // alter data of the ninjas (UPDATE)
-    public NinjaModel ninjaModel (NinjaModel ninjaModel) {
+    public NinjaModel ninjaUpdate (NinjaModel ninjaModel) {
         NinjaModel ninjaModel1 = new NinjaModel();
         ninjaModel1.setName(ninjaModel.getName());
         ninjaModel1.setAge(ninjaModel.getAge());

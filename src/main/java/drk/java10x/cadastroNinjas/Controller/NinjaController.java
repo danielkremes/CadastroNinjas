@@ -1,42 +1,52 @@
 package drk.java10x.cadastroNinjas.Controller;
 
 import drk.java10x.cadastroNinjas.Entity.ninja.NinjaModel;
+import drk.java10x.cadastroNinjas.services.NinjaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping
+@RequestMapping("/ninjas")
 public class NinjaController {
+
+    @Autowired
+    private NinjaService ninjaService;
 
     @GetMapping("/home")
     public String message() {
         return "Cadastro de ninjas";
     }
 
-    // add ninja (CREATE)
+    // Create ninja
     @PostMapping("/create")
-    public NinjaModel ninjaModel (@RequestBody NinjaModel ninjaModel) {
-        return
+    public NinjaModel create(@RequestBody NinjaModel ninjaModel) {
+        return ninjaService.createNinja(ninjaModel);
     }
 
-    // Show all ninjas (READ)
-    @GetMapping(/"all")
-    public List<NinjaModel> getAllNinjas () {
+    // Read all ninjas
+    @GetMapping("/all")
+    public List<NinjaModel> getAllNinjas() {
+        return ninjaService.getAllNinjas();
     }
 
-    // show ninja by id (READ)
-    @GetMapping(/"{id}")
-    public List<NinjaModel> getAllNinjas (@PathVariable Long id) {
+    // Read ninja by ID
+    @GetMapping("/{id}")
+    public Optional<NinjaModel> getNinjaById(@PathVariable Long id) {
+        return ninjaService.getNinjaById(id);
     }
 
-    // alter data of the ninjas (UPDATE)
+    // Update ninja
     @PutMapping("/update")
-    public NinjaModel ninjaModel (@RequestBody NinjaModel ninjaModel) {
+    public NinjaModel update(@RequestBody NinjaModel ninjaModel) {
+        return ninjaService.ninjaUpdate(ninjaModel);
     }
 
-    // deleted ninja by id (DELETE)
+    // Delete ninja by ID
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
+        ninjaService.delete(id);
     }
 }
