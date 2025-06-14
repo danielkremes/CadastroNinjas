@@ -29,7 +29,7 @@ public class NinjaModel {
     private String imageUrl;
 
     // a mission can have several various ninjas
-    @JsonIgnore
+//    @JsonIgnore
     @OneToMany(mappedBy = "ninja")
     private List<MissionsModel> missionsModelList;
 

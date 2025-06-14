@@ -11,8 +11,11 @@ import java.util.List;
 @Component
 public class StarterApp implements CommandLineRunner {
 
-    @Autowired
     private NinjaRepository ninjaRepository;
+
+    public StarterApp(NinjaRepository ninjaRepository) {
+        this.ninjaRepository = ninjaRepository;
+    }
 
     @Override
     public void run(String... args) throws Exception {
@@ -68,6 +71,8 @@ public class StarterApp implements CommandLineRunner {
                 new NinjaModel("ninhaUser49", 26),
                 new NinjaModel("ninhaUser50", 27)
         );
+
+
         ninjaRepository.saveAll(ninjas);
     }
 }
