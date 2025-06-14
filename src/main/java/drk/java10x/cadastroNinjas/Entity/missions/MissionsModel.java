@@ -24,4 +24,8 @@ public class MissionsModel {
     @JoinColumn(name = "mission_id") // foreign key
     private NinjaModel ninja;
 
+    public MissionsModel(String name, String difficulty) {
+        this.name = name;
+        this.difficulty = difficulty;
+    }
 }
