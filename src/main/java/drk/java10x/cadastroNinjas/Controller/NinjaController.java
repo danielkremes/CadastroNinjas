@@ -2,7 +2,6 @@ package drk.java10x.cadastroNinjas.Controller;
 
 import drk.java10x.cadastroNinjas.Entity.ninja.NinjaModel;
 import drk.java10x.cadastroNinjas.services.NinjaService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
