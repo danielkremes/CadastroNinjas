@@ -2,9 +2,6 @@ package drk.java10x.cadastroNinjas.services;
 
 import drk.java10x.cadastroNinjas.Entity.ninja.NinjaModel;
 import drk.java10x.cadastroNinjas.Repository.NinjaRepository;
-import jakarta.transaction.Transactional;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

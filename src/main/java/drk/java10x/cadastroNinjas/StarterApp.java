@@ -4,11 +4,9 @@ import drk.java10x.cadastroNinjas.Entity.missions.MissionsModel;
 import drk.java10x.cadastroNinjas.Entity.ninja.NinjaModel;
 import drk.java10x.cadastroNinjas.Repository.MissionRepository;
 import drk.java10x.cadastroNinjas.Repository.NinjaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Component
