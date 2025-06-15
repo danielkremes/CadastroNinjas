@@ -2,6 +2,10 @@ package drk.java10x.cadastroNinjas.Controller;
 
 import drk.java10x.cadastroNinjas.Entity.ninja.NinjaModel;
 import drk.java10x.cadastroNinjas.services.NinjaService;
+import jakarta.transaction.Transactional;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -50,5 +54,11 @@ public class NinjaController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         ninjaService.delete(id);
+    }
+
+    @DeleteMapping("/deleteAll")
+    public void deletedAll() {
+        ninjaService.deleteAllMissions();
+        System.out.println("Successful");
     }
 }

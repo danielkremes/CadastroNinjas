@@ -19,6 +19,7 @@ public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private int age;
 
@@ -28,10 +29,11 @@ public class NinjaModel {
     @Column(name = "img_url")
     private String imageUrl;
 
-    // a mission can have several various ninjas
-//    @JsonIgnore
-    @OneToMany(mappedBy = "ninja")
-    private List<MissionsModel> missionsModelList;
+    // Um ninja pertence a uma missão
+    @ManyToOne
+    @JoinColumn(name = "mission_id") // foreign key
+    @JsonIgnore // Evita recursão infinita no JSON
+    private MissionsModel mission;
 
     public NinjaModel(String name, int age) {
         this.name = name;

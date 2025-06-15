@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,16 +18,17 @@ public class MissionsModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String name;
     private String difficulty;
 
-    // a ninja for every mission
-    @ManyToOne
-    @JoinColumn(name = "mission_id") // foreign key
-    private NinjaModel ninja;
+    // Uma missão pode ter vários ninjas
+    @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
+    private List<NinjaModel> ninjaModel;
 
-    public MissionsModel(String name, String difficulty) {
+    public MissionsModel(String name, String difficulty, List<NinjaModel> ninja) {
         this.name = name;
         this.difficulty = difficulty;
+        this.ninjaModel = ninja;
     }
 }

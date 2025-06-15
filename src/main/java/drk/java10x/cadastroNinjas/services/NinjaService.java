@@ -2,7 +2,9 @@ package drk.java10x.cadastroNinjas.services;
 
 import drk.java10x.cadastroNinjas.Entity.ninja.NinjaModel;
 import drk.java10x.cadastroNinjas.Repository.NinjaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.transaction.Transactional;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,17 +36,22 @@ public class NinjaService {
 
     // alter data of the ninjas (UPDATE)
     public NinjaModel ninjaUpdate (NinjaModel ninjaModel) {
-        NinjaModel ninjaModel1 = new NinjaModel();
-        ninjaModel1.setName(ninjaModel.getName());
-        ninjaModel1.setAge(ninjaModel.getAge());
-        ninjaModel1.setEmail(ninjaModel.getEmail());
-        ninjaModel1.setImageUrl(ninjaModel.getImageUrl());
-        ninjaModel1.setMissionsModelList(ninjaModel1.getMissionsModelList());
-        return ninjaRepository.save(ninjaModel1);
+        NinjaModel ninja = new NinjaModel();
+        ninja.setName(ninjaModel.getName());
+        ninja.setAge(ninjaModel.getAge());
+        ninja.setEmail(ninjaModel.getEmail());
+        ninja.setImageUrl(ninjaModel.getImageUrl());
+        ninja.setMission(ninja.getMission());
+        return ninjaRepository.save(ninja);
     }
 
     // deleted ninja by id (DELETE)
     public void delete(Long id) {
         ninjaRepository.deleteById(id);
     }
+
+    public void deleteAllMissions() {
+        ninjaRepository.deleteAll();
+    }
+
 }

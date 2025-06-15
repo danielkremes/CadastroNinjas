@@ -10,7 +10,7 @@ import java.util.Optional;
 @Service
 public class MissionService {
 
-    private final MissionRepository missionRepository;
+    private MissionRepository missionRepository;
 
     public MissionService(MissionRepository missionRepository) {
         this.missionRepository = missionRepository;
@@ -33,7 +33,6 @@ public class MissionService {
 
         mission.setName(missionsModel.getName());
         mission.setDifficulty(mission.getDifficulty());
-        mission.setNinja(mission.getNinja());
 
         return missionRepository.save(mission);
     }
@@ -42,4 +41,7 @@ public class MissionService {
         missionRepository.deleteById(id);
     }
 
+    public void deleteAllMissions() {
+        missionRepository.deleteAll();
+    }
 }
